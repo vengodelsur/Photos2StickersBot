@@ -7,10 +7,9 @@ access_token = '615690891:AAGoQ8B1Q-4saF0dhyV6vJ8Syku3whOwBrQ'
 bot = telebot.TeleBot(access_token)
 
 
-# Бот будет отвечать только на текстовые сообщения
-@bot.message_handler(content_types=['text'])
-def echo(message):
-    bot.send_message(message.chat.id, message.text)
+@bot.message_handler(content_types=['photo'])
+def photo(message):
+    bot.send_photo(message.chat.id, message.photo[-1].file_id)
 
 
 if __name__ == '__main__':

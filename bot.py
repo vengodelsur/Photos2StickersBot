@@ -1,12 +1,17 @@
 # encoding: utf-8
 import telebot
 import requests
-import neural_net
-from PIL import Image
+import urllib
 
 access_token = '615690891:AAGoQ8B1Q-4saF0dhyV6vJ8Syku3whOwBrQ'
 # Создание бота с указанным токеном доступа
 bot = telebot.TeleBot(access_token)
+
+import neural_net
+from PIL import Image
+
+
+
 
 
 @bot.message_handler(content_types=['photo'])
@@ -16,7 +21,7 @@ def photo(message):
     photo_file = bot.get_file(file_id)
     photo_file_path = photo_file.file_path
     url = 'https://api.telegram.org/file/bot' + access_token + '/' + photo_file_path
-    r = requests.get(url, allow_redirects=True)
+    r = requests.get(url, allow_redirects=True, proxies=urllib.getproxies())
     open('img.jpg', 'wb').write(r.content)
     image = skimage.io.imread('img.jpg')
     result = neural_net.predict_by_image(image)

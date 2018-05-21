@@ -18,7 +18,13 @@ def photo(message):
     url = 'https://api.telegram.org/file/bot' + access_token + '/' + photo_file_path
     r = requests.get(url, allow_redirects=True)
     open('img.jpg', 'wb').write(r.content)
-    process_image('img.jpg')    
+    image = skimage.io.imread('img.jpg')
+    result = neural_net.predict_by_image(image)
+    pil_image = apply_mask(image, result)
+    pil_image.save('img.jpg')
+    process_image('img.jpg') 
+    with open(im_fname, 'rb') as im_f:
+        bot.send_photo(message.chat.id, 'img.jpg')   
 
 def process_image(image_file_name):
     img = Image.open(image_file_name)

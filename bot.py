@@ -17,11 +17,14 @@ def photo(message):
     url = 'https://api.telegram.org/file/bot' + access_token + '/' + photo_file_path
     r = requests.get(url, allow_redirects=True)
     open('img.jpg', 'wb').write(r.content)
-    img = Image.open("img.jpg")
+    process_image('img.jpg')    
+
+def process_image(image_file_name):
+    img = Image.open(image_file_name)
     w, h = img.size
     area = (w/2 - 512/2, h/2 - 512/2, w/2 + 512/2, h/2 + 512/2)
     cropped_img = img.crop(area)
-    cropped_img.save('img.jpg')
+    cropped_img.save(image_file_name)
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)

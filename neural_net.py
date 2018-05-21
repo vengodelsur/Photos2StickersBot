@@ -75,7 +75,7 @@ def predict_by_image(image):
     return results[0]
 
 def apply_mask(image, result):
-    object_number = 1
+    object_number = 0
     mask = np.where(result['masks'][:, :, object_number] == 0)
     image[mask] = 0
     return Image.fromarray(image, 'RGB')

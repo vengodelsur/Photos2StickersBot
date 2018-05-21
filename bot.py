@@ -1,6 +1,7 @@
 # encoding: utf-8
 import telebot
 import requests
+import neural_net
 from PIL import Image
 
 access_token = '615690891:AAGoQ8B1Q-4saF0dhyV6vJ8Syku3whOwBrQ'

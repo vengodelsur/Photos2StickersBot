@@ -2,9 +2,9 @@
 import telebot
 import requests
 import skimage
-access_token = '615690891:AAGoQ8B1Q-4saF0dhyV6vJ8Syku3whOwBrQ'
+from token_file import ACCESS_TOKEN
 # Создание бота с указанным токеном доступа
-bot = telebot.TeleBot(access_token)
+bot = telebot.TeleBot(ACCESS_TOKEN)
 
 import neural_net
 from PIL import Image

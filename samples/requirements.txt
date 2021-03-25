@@ -54,7 +54,7 @@ pyrsistent==0.15.4
 pyTelegramBotAPI==3.6.6
 python-dateutil==2.8.0
 PyWavelets==1.0.3
-PyYAML==5.1.2
+PyYAML==5.4
 pyzmq==18.1.0
 qtconsole==4.5.5
 requests==2.7.0

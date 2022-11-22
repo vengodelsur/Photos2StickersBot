@@ -17,7 +17,7 @@ kiwisolver==1.1.0
 Markdown==3.1.1
 networkx==2.3
 numpy==1.17.2
-Pillow==6.1.0
+Pillow==9.3.0
 protobuf==3.9.1
 pyparsing==2.4.2
 pyTelegramBotAPI==3.6.6
